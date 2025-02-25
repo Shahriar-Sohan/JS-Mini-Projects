@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miam!</title>
+    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Pacifico&display=swap');
+               
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FAEBD7;
+        }
+        h1 {
+            text-align: center;
+            font-family: "Pacifico", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .container {
+            text-align: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            text-align: center;
+            font-family: "Pacifico", serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #F8F8FF;
+            margin: 0 10px;
+            border-radius: 10%;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.593);
+            cursor: pointer;
+            transition: transform 0.2s;
+    }
+        .buttons button:active {
+        transform: scale(0.95);
+        }
+
+        .tenor-gif-embed {
+            width: 40vw;
+            height: 40vh;
+            margin-bottom: 3vh;
+            pointer-events: none;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tenor-gif-embed" data-postid="19324036" data-share-method="host" data-aspect-ratio="1">
+            <a class="gif" href="https://tenor.com/view/milkangry-milk-and-mocha-gif-19324036">Milkangry Milk And Mocha Sticker</a> from <a class="search" href="https://tenor.com/search/milkangry-stickers">Milkangry Stickers</a>
+        </div> 
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        
+        <h1>Don't hate me😭
+        </h1>
+        
+        <div class="buttons">
+            <button class="yes-btn">Kiss HIM!!!</button>
+            <button class="no-btn">Huh😡</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const noBtn = document.querySelector(".no-btn");
+    const yesBtn = document.querySelector(".yes-btn");
+    const text = document.querySelector("h1");
+
+    // Create a container to hold the GIF dynamically
+    let gifContainer = document.createElement("div");
+    gifContainer.id = "gif-container";
+    document.querySelector(".container").insertBefore(gifContainer, text); // Insert before text
+
+    
+
+    class GIF {
+    constructor(postId, gifUrl, text, searchUrl) {
+        this.postId = postId;
+        this.gifUrl = gifUrl;
+        this.text = text;
+        this.searchUrl = searchUrl;
+    }
+
+    async createGif() {
+        // 🔴 Remove the old iframe embed (if it exists)
+        const oldGifEmbed = document.querySelector(".tenor-gif-embed");
+        if (oldGifEmbed) {
+            oldGifEmbed.remove();
+        }
+
+        // 🔵 Create new Tenor embed div
+        const newGifEmbed = document.createElement("div");
+        newGifEmbed.className = "tenor-gif-embed";
+        newGifEmbed.setAttribute("data-postid", this.postId);
+        newGifEmbed.setAttribute("data-share-method", "host");
+        newGifEmbed.setAttribute("data-aspect-ratio", "1");
+        newGifEmbed.innerHTML = `
+            <a class="gif" href="${this.gifUrl}">${this.text}</a>
+            from <a class="search" href="${this.searchUrl}">More GIFs</a>
+        `;
+
+        // 🔵 Append the new embed div
+        gifContainer.appendChild(newGifEmbed);
+
+        // 🔴 Reload Tenor script completely
+        this.removeTenorScript();
+        this.addTenorScript();
+    }
+
+    removeTenorScript() {
+        // 🔴 Remove any old Tenor script (if exists)
+        let existingScript = document.querySelector("script[src='https://tenor.com/embed.js']");
+        if (existingScript) {
+            existingScript.remove();
+        }
+    }
+
+    addTenorScript() {
+        // 🔵 Add Tenor embed script to render the GIF
+        const newScript = document.createElement("script");
+        newScript.src = "https://tenor.com/embed.js";
+        newScript.async = true;
+        newScript.onload = () => {
+            console.log("Tenor script reloaded.");
+        };
+        document.body.appendChild(newScript);
+    }
+}
+
+
+
+    const arrOfGif = [
+        new GIF(
+            "24455806",
+            "https://tenor.com/view/emote-gif-24455806",
+            "Emote GIF",
+            "https://tenor.com/search/emote-gifs"
+        ),
+        new GIF(
+            "22393762",
+            "https://tenor.com/view/mimibubu-gif-22393762",
+            "Mimibubu Sticker",
+            "https://tenor.com/search/mimibubu-stickers"
+        ),
+        new GIF(
+            "946891727962368643",
+            "https://tenor.com/view/dudu-crying-i-want-food-cry-sad-tears-gif-946891727962368643",
+            "Dudu Crying I Want Food Sticker",
+            "https://tenor.com/search/dudu+crying-stickers"
+        ),
+        new GIF(
+            "12782870542608816906",
+            "https://tenor.com/view/bubu-bubu-dudu-bubbu-bear-bhalu-gif-12782870542608816906",
+            "Bubu Bubu Dudu Sticker",
+            "https://tenor.com/search/bubu-stickers"
+
+        ),
+        new GIF(
+            "3321910675185241277",
+            "https://tenor.com/view/bubu-dudu-sleep-bubu-dudu-gif-3321910675185241277",
+            "Bubu Dudu Sleep Meme",
+            "https://tenor.com/search/bubu+dudu+sleep-memes"
+        ),
+        new GIF(
+            "12611896631449379850",
+            "https://tenor.com/view/bubu-dudu-sseeyall-gif-12611896631449379850",
+            "Bubu Dudu Sseeyall Sticker",
+            "https://tenor.com/search/bubu+dudu-stickers"
+        ),
+        new GIF(
+            "7549072801185261876",
+            "https://tenor.com/view/bubu-bubu-dudu-motki-dudu-fudu-bubbu-gif-7549072801185261876",
+            "Bubu Bubu Dudu Sticker",
+            "https://tenor.com/search/bubu-stickers"
+        ),
+        new GIF(
+            "25577582",
+            "https://tenor.com/view/tkthao219-bubududu-gif-25577582",
+            "Tkthao219 Bubududu Sticker",
+            "https://tenor.com/search/tkthao219-stickers"
+        )
+    ];
+
+    const arrOfSentence = [
+        "plz🥺",
+        "plz etoh raag dekhay ki hobe, hae?☹️",
+        "gib me kisses😞",
+        "Miam needs KISSIIII!!!!🙂‍↕️🙂‍↕️",
+        "Miam misses you😢",
+        "Miam sad😭"
+    ];
+
+    let n = 0;
+    noBtn.addEventListener("click", async () => {
+        text.innerHTML = arrOfSentence[n];
+
+        if (n < 6) {
+            await arrOfGif[n].createGif();
+        }
+
+        n++;
+        if (n >= arrOfSentence.length) {
+            n = 0;
+        }
+    });
+
+    let clicked = 0;
+    yesBtn.addEventListener("click", async () => {
+        if(clicked===0){
+            await arrOfGif[6].createGif()
+            text.innerHTML = "Yay! 🥰";
+            yesBtn.innerHTML = "Come to me🥺!"
+            noBtn.remove()
+            console.log(clicked)
+        }
+        if(clicked === 1){
+            await arrOfGif[7].createGif()
+            yesBtn.innerHTML = "Text Me!!!🥺"
+            text.innerHTML = "Let's watch a movie😗"
+        }
+        if(clicked === 2){
+            window.location.href = 'https://wa.me/?text=Lets%20watch%20a%20movie!';
+        }
+        clicked++
+
+    });
+});
+
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miam!</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Pacifico&display=swap');
+                
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FAEBD7;
+        }
+        h1 {
+            text-align: center;
+            font-family: "Pacifico", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .container {
+            text-align: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            text-align: center;
+            font-family: "Pacifico", serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #F8F8FF;
+            margin: 0 10px;
+            border-radius: 10%;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.593);
+            cursor: pointer;
+            transition: transform 0.2s;
+    }
+        .buttons button:active {
+        transform: scale(0.95);
+        }
+
+        .tenor-gif-embed {
+            width: 40vw;
+            height: 40vh;
+            margin-bottom: 3vh;
+            pointer-events: none;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tenor-gif-embed" data-postid="24822898" data-share-method="host" data-aspect-ratio="1" >
+            <a class="gif" href="https://tenor.com/view/crying-bear-gif-24822898">Crying Bear GIF</a>from <a href="https://tenor.com/search/crying-gifs">Crying GIFs</a>
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div> 
+        
+        <h1>Nooo. 
+            You've hurted miam a lot🥺
+            He had gone through so many traumas</h1>
+        <div class="buttons">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const noBtn = document.querySelector('.no-btn');
+    const yesBtn = document.querySelector('.yes-btn');
+
+    let n = 0;
+    noBtn.addEventListener('click', () => {
+        yesBtn.style.position = 'absolute';
+        yesBtn.style.transform = `scale(${1.00 + n})`;
+        yesBtn.style.top = `${80 - n*5}vh`
+        yesBtn.style.left = '35vw'
+        n++;
+        noBtn.style.position = 'absolute';
+        const noBtnHeight = noBtn.offsetHeight;
+        const noBtnWidth = noBtn.offsetWidth;
+        noBtn.style.top = `${Math.random() * (window.innerHeight - noBtnHeight)}px`;
+        noBtn.style.left = `${Math.random() * (window.innerWidth - noBtnWidth)}px`;
+    });
+    yesBtn.addEventListener('click', () => {
+        window.location.href = 'yes1.html';
+    });
+});
+
+    </script>
+</body>
+</html>
