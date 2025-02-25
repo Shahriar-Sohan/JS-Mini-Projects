@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-height: 80%;
+            max-width: 60%;
+            overflow: scroll;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .header {
+            flex-wrap: nowrap;
+            flex-direction: row;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            height: 20px;
+            padding: 10px 20px 10px 10px;
+            margin-bottom: 0px;
+            border: solid #ccc;
+            border-right: 0px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            margin-left: 6%;
+            vertical-align: middle;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ccc;
+        }
+
+        .add-btn {
+            margin: 0;
+            border-radius: 50px;
+            border: 3px solid blueviolet;
+            padding: 12px 25px 10px 25px;
+            display: inline-block;
+            color: #fff;
+            background-color: blueviolet;
+            margin-left: -9%;
+
+        }
+
+        ul {
+            list-style: none;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .taskList {
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.065);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            word-wrap: break-word;
+        }
+
+        .dlt-btn {
+            border: none;
+            padding: 5px 15px;
+            background-color: inherit;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .taskLists {
+            flex-direction: column;
+            display: flex;
+            justify-content: space-evenly;
+            height: 100%;
+            overflow: visible;
+            padding: 20px;
+            gap: 5px;
+        }
+
+
+        .todo-text {
+            transition: color 0.8s ease;
+            max-width: 69%;
+        }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            margin-left: 15px;
+            margin-right: 10px;
+        }
+
+        .checkmark {
+            visibility: hidden;
+        }
+
+        input[type='checkbox']:checked+.custom-checkbox .checkmark {
+            visibility: visible;
+        }
+
+        input[type="checkbox"]:checked+.custom-checkbox+.todo-text {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <form class="header">
+            <input type="text" id="taskInput" placeholder="Add a new task..." autocomplete="off">
+            <button class="add-btn">ADD</button>
+        </form>
+        <div class="taskLists">
+            <ul class="taskLists">
+                <li class="taskList" id="taskList-1">
+                    <input type="checkbox" id="todo-1">
+                    <label for="todo-1" class="custom-checkbox">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                            width="24px" fill="#000000">
+                            <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+                        </svg>
+                    </label>
+                    <label for="todo-1" class="todo-text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </label>
+                    <button class="dlt-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#EA3323">
+                            <path
+                                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="taskList" id="taskList-2">
+                    <input type="checkbox" id="todo-2">
+                    <label for="todo-2" class="custom-checkbox">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                            width="24px" fill="#000000">
+                            <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+                        </svg>
+                    </label>
+                    <label for="todo-2" class="todo-text">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </label>
+                    <button class="dlt-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#EA3323">
+                            <path
+                                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <script>
+        const taskLists = document.querySelector(".taskLists");
+        const taskList = document.querySelector(".taskList");
+        const taskInput = document.querySelector("#taskInput");
+        const addBtn = document.querySelector(".add-btn");
+        const dltBtn = document.querySelector(".dlt-btn");
+
+
+        let tasks = [];
+
+
+        function renderTask() {
+            taskLists.innerHTML = "";
+            tasks.map((task, index) => {
+                let newList = document.createElement("li")
+                newList.className = "taskList"
+                newList.id = `taskList-${index + 1}`
+
+                const checkMarkInput = document.createElement("input")
+                checkMarkInput.type = "checkbox"
+                checkMarkInput.id = `todo-${index + 1}`
+                const checkMark = document.createElement("label")
+                checkMark.className = "custom-checkbox"
+                checkMark.htmlFor = `todo-${index + 1}`
+                checkMark.innerHTML = ` <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+                            <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg> `
+
+
+                let label = document.createElement("label")
+                label.className = "todo-text"
+                label.htmlFor = `todo-${index + 1}`
+                label.textContent = task
+
+
+                const dltBtn = document.createElement("button")
+                dltBtn.className = "dlt-btn"
+                dltBtn.id = `dlt-btn-${index + 1}`;
+                dltBtn.innerHTML = ` <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EA3323">
+                            <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg> `
+
+                dltBtn.addEventListener("click", () => removeTask(index))
+
+                let fragment = document.createDocumentFragment()
+                fragment.append(checkMarkInput, checkMark, label, dltBtn)
+                newList.appendChild(fragment)
+                taskLists.appendChild(newList)
+
+            })
+
+        }
+
+        function addTask(event) {
+            event.preventDefault();
+            tasks.push(taskInput.value)
+            taskInput.value = "";
+            renderTask()
+        }
+        function removeTask(index) {
+            tasks.splice(index, 1)
+            renderTask()
+        }
+
+
+        addBtn.addEventListener("click", addTask);
+
+        document.addEventListener("DOMContentLoaded", renderTask);
+
+    </script>
+</body>
+
+</html>
