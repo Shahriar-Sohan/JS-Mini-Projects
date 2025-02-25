@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Colour Flipper</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #green {
+            background-color: green;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        button {
+            border-radius: 5px;
+            width: 100px;
+            height: 40px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Colour Flipper</h3>
+    <button class="button" id="red">Red</button>
+    <button class="button" id="green">Green</button>
+    <button class="button" id="blue">Blue</button>
+    <button class="button" id="reset">Reset</button>
+    <button class="button" id="random">Random</button>
+
+    <script>
+        const body = document.body
+
+        //Buttons
+        const resetBtn = document.getElementById("reset")
+        const rdmBtn = document.getElementById("random")
+        const redBtn = document.getElementById("red")
+        const blueBtn = document.getElementById("blue")
+        const greenBtn = document.getElementById("green")
+
+        const allBtn = document.getElementsByClassName("button")
+
+
+
+        //click
+        redBtn.addEventListener("click", () => bgColour("red"))
+        greenBtn.addEventListener("click", () => bgColour("green"))
+        blueBtn.addEventListener("click", () => bgColour("blue"))
+        resetBtn.addEventListener("click", () => reset())
+
+
+        //mouse
+        let generatedClr = ""
+
+        rdmBtn.addEventListener("mouseover", () => {
+            rdmBtn.classList.add("hover-effect")
+            generatedClr = randomColor()
+            rdmBtn.style.backgroundColor = generatedClr
+        })
+
+        rdmBtn.addEventListener("click", () => body.style.backgroundColor = generatedClr)
+
+        rdmBtn.addEventListener("mouseout", () => {
+            rdmBtn.classList.remove("hover-effect")
+            rdmBtn.style.backgroundColor = "white"
+        })
+
+
+
+
+        //Logics
+        function bgColour(colour) {
+            body.style.backgroundColor = colour
+        }
+
+        function reset() {
+            body.style.backgroundColor = "white"
+        }
+
+
+        function randomColor() {
+            const red = Math.round(Math.random() * 255)
+            const blue = Math.round(Math.random() * 255)
+            const green = Math.round(Math.random() * 255)
+
+            const color = `rgb(${red},${blue},${green})`
+
+            return color
+        }
+
+
+    </script>
+</body>
+
+</html>
