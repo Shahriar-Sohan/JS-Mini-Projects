@@ -1,0 +1,78 @@
+
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("pexels-francesco-ungaro-998641.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1920px 1080px;
+    background-color: black;
+    
+}
+
+.auth-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    padding: 100px 100px;
+    gap: 5px;
+    background-color: rgba(88, 86, 86, 0.373);
+    color: aqua;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+.auth-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.auth-form input{
+    height: 30px;
+    width: 200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    border: none;
+}
+.auth-form img{
+    position: relative;
+    left: 470px;
+    transform: translateY(8px);
+    height: 20px;
+}
+.auth-remember{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    white-space: nowrap;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.submit-btn{
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.error-msg{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 10px;
+    height: 0.1px;
+    color: brown;
+    margin-top: none;
+}
+#first-input{
+    margin-bottom: 10px;
+}

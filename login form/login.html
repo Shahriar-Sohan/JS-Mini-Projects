@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-card">
+        <div class="auth-form">
+            <label for="username" class="auth-label">
+                <input type="text" class="auth-input" id="first-input" placeholder="username" required>
+            </label>
+            <label for="username" class="auth-form">
+                <input type="password" class="auth-input" id="second-input" placeholder="password" required>
+                
+            </label>
+        </div>
+        <span class="error-msg"></span>
+        <div class="auth-remember">
+            
+            <label>
+                <input type="checkbox">
+                Remember me.
+            </label>
+            <a href="#" class="auth-link">Forgot password?</a>
+        </div>
+        <button class="submit-btn">Submit</button>
+        <div class="auth-register">
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+        
+
+    </div>
+    <script src="login-script.js"></script>
+</body>
+</html>
