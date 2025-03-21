@@ -2,32 +2,31 @@ const card = document.querySelector("div.card");
 const display1 = document.querySelector("#display1");
 const display2 = document.querySelector("#display2");
 const display3 = document.querySelector("#display3");
-const display4 = document.querySelector("#display4");
 
-let startX = 0, startY = 0, offsetX = 0, offsetY = 0;
+
 let isDragging = false;
-
-
-let lastX = 0, lastY = 0;
 let animationFrameId = null;
+
+let offsetX = 0, offsetY = 0; 
 
 function startDrag(clientX, clientY) {
     const rect = card.getBoundingClientRect();
-    startX = rect.left;
-    startY = rect.top;
     offsetX = clientX - rect.left;
     offsetY = clientY - rect.top;
     isDragging = true;
 }
 
 function moveCard(clientX, clientY) {
-    lastX = clientX - offsetX;
-    lastY = clientY - offsetY;
+    const newX = clientX - offsetX;
+    const newY = clientY - offsetY;
 
     if (!animationFrameId) {
         animationFrameId = requestAnimationFrame(() => {
-            card.style.transform = `translate(${lastX}px, ${lastY}px)`;
-            display3.textContent = `Card Position: X = ${lastX}, Y = ${lastY}`;
+            card.style.left = `${newX}px`;
+            card.style.top = `${newY}px`;
+            display1.textContent = `Mouse X = ${clientX}, Y = ${clientY}`;
+            display2.textContent = `Offset X = ${offsetX}, Y = ${offsetY}`;
+            display3.textContent = `Card Position: X = ${newX}, Y = ${newY}`;
             animationFrameId = null;
         });
     }
@@ -53,14 +52,14 @@ function touchMove(e) {
     }
 }
 
-// Mouse Events
+// Mouse
 card.addEventListener("mousedown", (e) => {
     startDrag(e.clientX, e.clientY);
     document.addEventListener("mousemove", mouseMove);
     document.addEventListener("mouseup", stopDrag);
 });
 
-// Touch Events
+// Touch
 card.addEventListener("touchstart", (e) => {
     const touch = e.touches[0];
     startDrag(touch.clientX, touch.clientY);
